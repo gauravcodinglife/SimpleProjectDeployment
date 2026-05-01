@@ -16,7 +16,6 @@ This repository demonstrates **two deployment strategies**:
 
 ## 🏗️ Architecture Diagram
 
-```mermaid
 graph TD
     A[Developer] -->|Git Push| B(GitHub Repo)
     B -->|Webhook| C[Jenkins Server]
