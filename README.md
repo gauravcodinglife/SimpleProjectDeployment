@@ -16,8 +16,6 @@ This repository demonstrates two deployment strategies:
 1. Freestyle Job (GUI-based, ideal for beginners)
 2. Declarative Pipeline (Groovy-based, industry standard)
 
----
-
 🏗️ Architecture Diagram
 
 ```mermaid
