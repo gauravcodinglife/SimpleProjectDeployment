@@ -5,6 +5,9 @@
 [![Jenkins](https://img.shields.io/badge/Jenkins-CI/CD-red?logo=jenkins)](https://www.jenkins.io/)
 [![Apache](https://img.shields.io/badge/Apache-WebServer-critical?logo=apache)](https://httpd.apache.org/)
 
+<img width="1424" height="750" alt="image" src="https://github.com/user-attachments/assets/d5ff01c9-ceb1-48cc-9cc6-7ce40e3c3a3e" />
+
+
 ##  Overview
 This project implements a fully automated **Continuous Integration and Continuous Deployment (CI/CD)** pipeline for a static website. The infrastructure leverages **AWS EC2** for hosting, **Apache2** as the web server, and **Jenkins** for orchestration. 
 
