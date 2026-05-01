@@ -1,32 +1,29 @@
-🚀 Automated CI/CD Pipeline for Static Web Deployment
+# 🚀 Automated CI/CD Pipeline for Static Web Deployment
 
-<img width="82" height="20" alt="image" src="https://github.com/user-attachments/assets/45ccbf6e-911b-43a9-a35e-adf5401d0c35" />
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![AWS](https://img.shields.io/badge/AWS-EC2-orange?logo=amazon-aws)](https://aws.amazon.com/)
+[![Jenkins](https://img.shields.io/badge/Jenkins-CI/CD-red?logo=jenkins)](https://www.jenkins.io/)
+[![Apache](https://img.shields.io/badge/Apache-WebServer-critical?logo=apache)](https://httpd.apache.org/)
 
-<img width="66" height="20" alt="image" src="https://github.com/user-attachments/assets/d8e3571c-0817-4656-b8f6-22b7093b551d" />
+##  Overview
+This project implements a fully automated **Continuous Integration and Continuous Deployment (CI/CD)** pipeline for a static website. The infrastructure leverages **AWS EC2** for hosting, **Apache2** as the web server, and **Jenkins** for orchestration. 
 
-<img width="111" height="20" alt="image" src="https://github.com/user-attachments/assets/027346dd-7e9e-4429-b91a-71f1ee81a342" />
+This repository demonstrates **two deployment strategies**:
+1. **Freestyle Job** (GUI-based, ideal for beginners)
+2. **Declarative Pipeline** (Groovy-based, industry standard)
 
-<img width="143" height="20" alt="image" src="https://github.com/user-attachments/assets/3052db65-d05d-4b86-b9b3-b6a983eeb11d" />
+---
 
-
-📖 Overview
-This project implements a fully automated Continuous Integration and Continuous Deployment (CI/CD) pipeline for a static website. The infrastructure leverages AWS EC2 for hosting, Apache2 as the web server, and Jenkins for orchestration. 
-
-This repository demonstrates two deployment strategies:
-1. Freestyle Job (GUI-based, ideal for beginners)
-2. Declarative Pipeline (Groovy-based, industry standard)
-
-🏗️ Architecture Diagram
+## 🏗️ Architecture Diagram
 
 ```mermaid
 graph TD
     A[Developer] -->|Git Push| B(GitHub Repository)
     B -->|Webhook/Poll| C[Jenkins Server]
     C -->|SSH Connection| D[AWS EC2 Instance]
-    D -->|Deploy Artifacts| E[/var/www/html]
+    D -->|Deploy Artifacts| E["/var/www/html"]
     E -->|Serve| F[Apache2 Web Server]
     F -->|HTTP Port 80| G[End User Browser]
-```
 
 ---
 
