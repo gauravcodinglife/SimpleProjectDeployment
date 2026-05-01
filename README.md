@@ -27,6 +27,8 @@ graph TD
 
 ---
 
+---
+
 🛠️ Tech Stack
 
 | Category | Technology |
