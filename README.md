@@ -1,4 +1,3 @@
-```markdown
 🚀 Automated CI/CD Pipeline for Static Web Deployment
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -7,9 +6,9 @@
 [![Apache](https://img.shields.io/badge/Apache-WebServer-critical?logo=apache)](https://httpd.apache.org/)
 
 Overview
-This project implements a fully automated **Continuous Integration and Continuous Deployment (CI/CD)** pipeline for a static website. The infrastructure leverages **AWS EC2** for hosting, **Apache2** as the web server, and **Jenkins** for orchestration. 
+This project implements a fully automated Continuous Integration and Continuous Deployment (CI/CD) pipeline for a static website. The infrastructure leverages AWS EC2 for hosting, Apache2 as the web server, and Jenkins for orchestration. 
 
-This repository demonstrates **two deployment strategies**:
+This repository demonstrates two deployment strategies:
 1. Freestyle Job (GUI-based, ideal for beginners)
 2. Declarative Pipeline (Groovy-based, industry standard)
 
@@ -25,7 +24,6 @@ graph TD
     D -->|Deploy| E["/var/www/html"]
     E -->|Serve| F[Apache2]
     F -->|HTTP| G[Users]
-```
 
 ---
 
