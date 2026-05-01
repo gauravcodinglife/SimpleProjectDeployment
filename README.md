@@ -1,8 +1,11 @@
 🚀 Automated CI/CD Pipeline for Static Web Deployment
 
 <img width="82" height="20" alt="image" src="https://github.com/user-attachments/assets/45ccbf6e-911b-43a9-a35e-adf5401d0c35" />
+
 <img width="66" height="20" alt="image" src="https://github.com/user-attachments/assets/d8e3571c-0817-4656-b8f6-22b7093b551d" />
+
 <img width="111" height="20" alt="image" src="https://github.com/user-attachments/assets/027346dd-7e9e-4429-b91a-71f1ee81a342" />
+
 <img width="143" height="20" alt="image" src="https://github.com/user-attachments/assets/3052db65-d05d-4b86-b9b3-b6a983eeb11d" />
 
 
