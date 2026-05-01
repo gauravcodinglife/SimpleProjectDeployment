@@ -1,26 +1,21 @@
-Perfect ✅  
-I have updated the **LinkedIn URL** and corrected the **Image Filenames** to match exactly what you have in your `images/` folder (`jenkins-build.jpg`, `ssh-config.jpg`, `website-live1.jpg`).
+🚀 Automated CI/CD Pipeline for Static Web Deployment
 
-Here is your **final, copy-paste ready README.md**:
+<img width="82" height="20" alt="image" src="https://github.com/user-attachments/assets/45ccbf6e-911b-43a9-a35e-adf5401d0c35" />
+<img width="66" height="20" alt="image" src="https://github.com/user-attachments/assets/d8e3571c-0817-4656-b8f6-22b7093b551d" />
+<img width="111" height="20" alt="image" src="https://github.com/user-attachments/assets/027346dd-7e9e-4429-b91a-71f1ee81a342" />
+<img width="143" height="20" alt="image" src="https://github.com/user-attachments/assets/3052db65-d05d-4b86-b9b3-b6a983eeb11d" />
 
-```markdown
-# 🚀 Automated CI/CD Pipeline for Static Web Deployment
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![AWS](https://img.shields.io/badge/AWS-EC2-orange?logo=amazon-aws)](https://aws.amazon.com/)
-[![Jenkins](https://img.shields.io/badge/Jenkins-CI/CD-red?logo=jenkins)](https://www.jenkins.io/)
-[![Apache](https://img.shields.io/badge/Apache-WebServer-critical?logo=apache)](https://httpd.apache.org/)
+📖 Overview
+This project implements a fully automated Continuous Integration and Continuous Deployment (CI/CD) pipeline for a static website. The infrastructure leverages AWS EC2 for hosting, Apache2 as the web server, and Jenkins for orchestration. 
 
-## 📖 Overview
-This project implements a fully automated **Continuous Integration and Continuous Deployment (CI/CD)** pipeline for a static website. The infrastructure leverages **AWS EC2** for hosting, **Apache2** as the web server, and **Jenkins** for orchestration. 
-
-This repository demonstrates **two deployment strategies**:
-1. **Freestyle Job** (GUI-based, ideal for beginners)
-2. **Declarative Pipeline** (Groovy-based, industry standard)
+This repository demonstrates two deployment strategies:
+1. Freestyle Job (GUI-based, ideal for beginners)
+2. Declarative Pipeline (Groovy-based, industry standard)
 
 ---
 
-## 🏗️ Architecture Diagram
+🏗️ Architecture Diagram
 
 ```mermaid
 graph TD
@@ -34,20 +29,20 @@ graph TD
 
 ---
 
-## 🛠️ Tech Stack
+🛠️ Tech Stack
 
 | Category | Technology |
 |----------|------------|
-| **Cloud Provider** | AWS EC2 (Ubuntu 22.04) |
-| **CI/CD Tool** | Jenkins LTS |
-| **Web Server** | Apache2 |
-| **Version Control** | Git & GitHub |
-| **Scripting** | Bash & Groovy |
-| **Protocol** | SSH (Key-Based Authentication) |
+| Cloud Provider | AWS EC2 (Ubuntu 22.04) |
+| CI/CD Tool | Jenkins LTS |
+| Web Server | Apache2 |
+| Version Control | Git & GitHub |
+| Scripting | Bash & Groovy |
+| Protocol | SSH (Key-Based Authentication) |
 
 ---
 
-##  Prerequisites
+Prerequisites
 
 - AWS Account with EC2 access
 - Jenkins Server (Installed & Configured)
@@ -57,9 +52,9 @@ graph TD
 
 ---
 
-## 🚀 Installation & Setup
+🚀 Installation & Setup
 
-### 1️⃣ Infrastructure Provisioning (AWS EC2)
+1️⃣ Infrastructure Provisioning (AWS EC2)
 Launch an Ubuntu EC2 instance and configure **Security Groups**:
 
 | Type | Port | Source |
@@ -68,7 +63,7 @@ Launch an Ubuntu EC2 instance and configure **Security Groups**:
 | HTTP | 80 | 0.0.0.0/0 |
 | Jenkins | 8080 | Your IP |
 
-### 2️⃣ Web Server Configuration
+2️⃣ Web Server Configuration
 Connect to EC2 and install Apache:
 
 ```bash
@@ -78,16 +73,16 @@ sudo systemctl start apache2
 sudo systemctl enable apache2
 ```
 
-### 3️⃣ Jenkins Configuration
-1. **Install Jenkins** on your server (EC2 or local).
-2. **Install Plugin:** `Publish Over SSH` (Required for Freestyle Method).
-3. **Configure SSH Server** in Jenkins (Manage Jenkins → Configure System):
-   - **Name:** `deploy-server`
-   - **Hostname:** `<EC2_PUBLIC_IP>`
-   - **Username:** `ubuntu`
-   - **Remote Directory:** `/var/www/html`
-   - **Key:** Paste private key content
-4. **Sudo Permissions:**
+3️⃣ Jenkins Configuration
+1. Install Jenkins on your server (EC2 or local).
+2. Install Plugin: `Publish Over SSH` (Required for Freestyle Method).
+3. Configure SSH Server in Jenkins (Manage Jenkins → Configure System):
+   - Name: `deploy-server`
+   - Hostname: `<EC2_PUBLIC_IP>`
+   - Username: `ubuntu`
+   - Remote Directory: `/var/www/html`
+   - Key: Paste private key content
+4. Sudo Permissions:
    Allow Jenkins to restart Apache without a password:
    ```bash
    sudo visudo
@@ -97,32 +92,32 @@ sudo systemctl enable apache2
 
 ---
 
-## 🔄 Deployment Methods
+🔄 Deployment Methods
 
 This project supports two ways to configure the job. Choose based on your learning goal.
 
-### ✅ Option 1: Freestyle Project (GUI-Based)
-*Best for understanding basic Jenkins configuration.*
+✅ Option 1: Freestyle Project (GUI-Based)
+Best for understanding basic Jenkins configuration.
 
-1. Create a new **Freestyle project**.
-2. **Source Code Management:** Git → Enter Repository URL.
-3. **Build Environment:** Check `Delete workspace before build`.
-4. **Build Step:** Select `Send files or execute commands over SSH`.
-   - **Source Files:** `web/**`
-   - **Remove Prefix:** `web`
-   - **Exec Command:** `sudo systemctl restart apache2`
-5. **Save & Build.**
+1. Create a new Freestyle project.
+2. Source Code Management: Git → Enter Repository URL.
+3. Build Environment: Check `Delete workspace before build`.
+4. Build Step: Select `Send files or execute commands over SSH`.
+   - Source Files: `web/**`
+   - Remove Prefix: `web`
+   - Exec Command: `sudo systemctl restart apache2`
+5. Save & Build.
 
 ---
 
-### ✅ Option 2: Pipeline Project (Groovy)
-*Best for production readiness and "Pipeline as Code".*
+✅ Option 2: Pipeline Project (Groovy)
+Best for production readiness and "Pipeline as Code".
 
-1. Create a new **Pipeline project**.
-2. Select **Pipeline script from SCM**.
+1. Create a new Pipeline project.
+2. Select Pipeline script from SCM.
 3. Ensure a `Jenkinsfile` exists in your repository root.
 
-#### 📄 Jenkinsfile Code
+📄 Jenkinsfile Code
 ```groovy
 pipeline {
     agent any
@@ -165,7 +160,7 @@ pipeline {
 
 ---
 
-##  Accessing the Application
+Accessing the Application
 
 Once the build is successful, access the deployed website via:
 
@@ -175,26 +170,26 @@ http://<YOUR-EC2-PUBLIC-IP>
 
 ---
 
-## 🔒 Security Best Practices
+🔒 Security Best Practices
 
-- **SSH Keys:** Private keys are stored in Jenkins Credentials Store, never in code.
-- **Security Groups:** Restricted access to port 22 and 8080 (Only your IP).
-- **Least Privilege:** Jenkins user granted only necessary sudo permissions.
-- **No Root Login:** SSH access configured for `ubuntu` user only.
-- **Host Key Checking:** Disabled in scripts for automation (`StrictHostKeyChecking=no`), but should be managed via `known_hosts` in production.
-
----
-
-## 📊 Project Impact
-
-- ✅ **Reduced Deployment Time:** From manual 10+ minutes to <1 minute.
-- ✅ **Error Reduction:** Eliminated manual file transfer errors.
-- ✅ **Consistency:** Ensured repeatable and reliable deployments.
-- ✅ **Automation:** Zero manual intervention required after code commit.
+- SSH Keys: Private keys are stored in Jenkins Credentials Store, never in code.
+- Security Groups: Restricted access to port 22 and 8080 (Only your IP).
+- Least Privilege: Jenkins user granted only necessary sudo permissions.
+- No Root Login: SSH access configured for `ubuntu` user only.
+- Host Key Checking: Disabled in scripts for automation (`StrictHostKeyChecking=no`), but should be managed via `known_hosts` in production.
 
 ---
 
-## 📸 Screenshots
+📊 Project Impact
+
+- ✅ Reduced Deployment Time: From manual 10+ minutes to <1 minute.
+- ✅ Error Reduction: Eliminated manual file transfer errors.
+- ✅ Consistency: Ensured repeatable and reliable deployments.
+- ✅ Automation: Zero manual intervention required after code commit.
+
+---
+
+📸 Screenshots
 
 | Jenkins Build Success | Live Website | SSH Configuration |
 |:---:|:---:|:---:|
@@ -202,18 +197,18 @@ http://<YOUR-EC2-PUBLIC-IP>
 
 ---
 
-## 🧩 Troubleshooting
+🧩 Troubleshooting
 
 | Issue | Solution |
 |-------|----------|
-| **Permission Denied** | Ensure `jenkins` user has sudo access (`visudo`) |
-| **SSH Connection Failed** | Verify Security Group allows Port 22 from Jenkins IP |
-| **403 Forbidden** | Check `/var/www/html` ownership (`www-data`) |
-| **Jenkins 403 Crumb Error** | Logout/Login or check CSRF protection settings |
+| Permission Denied | Ensure `jenkins` user has sudo access (`visudo`) |
+| SSH Connection Failed | Verify Security Group allows Port 22 from Jenkins IP |
+| 403 Forbidden | Check `/var/www/html` ownership (`www-data`) |
+| Jenkins 403 Crumb Error | Logout/Login or check CSRF protection settings |
 
 ---
 
-##  Learning Outcomes
+Learning Outcomes
 
 - Implemented end-to-end CI/CD automation.
 - Configured secure SSH key-based authentication.
@@ -223,8 +218,8 @@ http://<YOUR-EC2-PUBLIC-IP>
 
 ---
 
-## 👨 Author
+👨 Author
 
-**Gaurav**  
-*DevOps Engineer | Cloud Enthusiast*  
+Gaurav  
+DevOps Engineer | Cloud Enthusiast
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin)](https://www.linkedin.com/in/gaurav-chavan-codinglife)
