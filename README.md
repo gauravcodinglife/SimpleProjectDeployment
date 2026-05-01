@@ -15,6 +15,7 @@ This repository demonstrates **two deployment strategies**:
 ---
 
 ```markdown
+---
 
 🏗️ Architecture Diagram
 
