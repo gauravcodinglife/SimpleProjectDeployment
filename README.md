@@ -1,4 +1,5 @@
-# 🚀 Automated CI/CD Pipeline for Static Web Deployment
+```markdown
+🚀 Automated CI/CD Pipeline for Static Web Deployment
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![AWS](https://img.shields.io/badge/AWS-EC2-orange?logo=amazon-aws)](https://aws.amazon.com/)
@@ -9,21 +10,22 @@
 This project implements a fully automated **Continuous Integration and Continuous Deployment (CI/CD)** pipeline for a static website. The infrastructure leverages **AWS EC2** for hosting, **Apache2** as the web server, and **Jenkins** for orchestration. 
 
 This repository demonstrates **two deployment strategies**:
-1. **Freestyle Job** (GUI-based, ideal for beginners)
-2. **Declarative Pipeline** (Groovy-based, industry standard)
+1. Freestyle Job (GUI-based, ideal for beginners)
+2. Declarative Pipeline (Groovy-based, industry standard)
 
 ---
 
-## 🏗️ Architecture Diagram
+🏗️ Architecture Diagram
 
 ```mermaid
 graph TD
-    A[Developer] -->|Git Push| B(GitHub Repository)
-    B -->|Webhook/Poll| C[Jenkins Server]
-    C -->|SSH Connection| D[AWS EC2 Instance]
-    D -->|Deploy Artifacts| E["/var/www/html"]
-    E -->|Serve| F[Apache2 Web Server]
-    F -->|HTTP Port 80| G[End User Browser]
+    A[Developer] -->|Git Push| B(GitHub Repo)
+    B -->|Webhook| C[Jenkins Server]
+    C -->|SSH| D[AWS EC2]
+    D -->|Deploy| E["/var/www/html"]
+    E -->|Serve| F[Apache2]
+    F -->|HTTP| G[Users]
+```
 
 ---
 
@@ -40,7 +42,7 @@ graph TD
 
 ---
 
-Prerequisites
+📋 Prerequisites
 
 - AWS Account with EC2 access
 - Jenkins Server (Installed & Configured)
@@ -50,7 +52,7 @@ Prerequisites
 
 ---
 
-🚀 Installation & Setup
+ Installation & Setup
 
 1️⃣ Infrastructure Provisioning (AWS EC2)
 Launch an Ubuntu EC2 instance and configure **Security Groups**:
@@ -71,7 +73,7 @@ sudo systemctl start apache2
 sudo systemctl enable apache2
 ```
 
-3️⃣ Jenkins Configuration
+### 3️⃣ Jenkins Configuration
 1. Install Jenkins on your server (EC2 or local).
 2. Install Plugin: `Publish Over SSH` (Required for Freestyle Method).
 3. Configure SSH Server in Jenkins (Manage Jenkins → Configure System):
@@ -129,14 +131,14 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                echo ' Pulling latest code from GitHub...'
+                echo 'Pulling latest code from GitHub...'
                 git branch: 'main', url: 'https://github.com/YOUR_USERNAME/YOUR_REPO.git'
             }
         }
 
         stage('Deploy to EC2') {
             steps {
-                echo '🚀 Deploying files to Web Server...'
+                echo 'Deploying files to Web Server...'
                 sh '''
                 scp -o StrictHostKeyChecking=no -r web/* ${EC2_USER}@${EC2_HOST}:${DEPLOY_PATH}/
                 ssh -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST} "sudo systemctl restart apache2"
@@ -147,10 +149,10 @@ pipeline {
 
     post {
         success {
-            echo '✅ Deployment Successful! Website is live.'
+            echo 'Deployment Successful! Website is live.'
         }
         failure {
-            echo '❌ Deployment Failed. Check console output.'
+            echo 'Deployment Failed. Check console output.'
         }
     }
 }
@@ -158,7 +160,7 @@ pipeline {
 
 ---
 
-Accessing the Application
+🌐 Accessing the Application
 
 Once the build is successful, access the deployed website via:
 
@@ -168,17 +170,16 @@ http://<YOUR-EC2-PUBLIC-IP>
 
 ---
 
-🔒 Security Best Practices
+ Security Best Practices
 
 - SSH Keys: Private keys are stored in Jenkins Credentials Store, never in code.
 - Security Groups: Restricted access to port 22 and 8080 (Only your IP).
 - Least Privilege: Jenkins user granted only necessary sudo permissions.
 - No Root Login: SSH access configured for `ubuntu` user only.
-- Host Key Checking: Disabled in scripts for automation (`StrictHostKeyChecking=no`), but should be managed via `known_hosts` in production.
 
 ---
 
-📊 Project Impact
+Project Impact
 
 - ✅ Reduced Deployment Time: From manual 10+ minutes to <1 minute.
 - ✅ Error Reduction: Eliminated manual file transfer errors.
@@ -201,7 +202,7 @@ http://<YOUR-EC2-PUBLIC-IP>
 |-------|----------|
 | Permission Denied | Ensure `jenkins` user has sudo access (`visudo`) |
 | SSH Connection Failed | Verify Security Group allows Port 22 from Jenkins IP |
-| 403 Forbidden | Check `/var/www/html` ownership (`www-data`) |
+| 403 Forbidden** | Check `/var/www/html` ownership (`www-data`) |
 | Jenkins 403 Crumb Error | Logout/Login or check CSRF protection settings |
 
 ---
@@ -216,8 +217,8 @@ Learning Outcomes
 
 ---
 
-👨 Author
+👨‍💻 Author
 
-Gaurav  
-DevOps Engineer | Cloud Enthusiast
+Gaurav 
+DevOps Engineer | Cloud Enthusiast*  
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin)](https://www.linkedin.com/in/gaurav-chavan-codinglife)
