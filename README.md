@@ -1,4 +1,7 @@
 Automated CI/CD Pipeline for Static Web Deployment
+
+<img width="82" height="20" alt="image" src="https://github.com/user-attachments/assets/52b1cd73-f511-4b64-aacd-ef5c47b9f944" />
+
 License: MIT
 AWS
 Jenkins
